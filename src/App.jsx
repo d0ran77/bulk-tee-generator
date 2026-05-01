@@ -89,7 +89,8 @@ const formatDesignText = (text, mode) => {
 
 // Embedded Brutalist CSS
 const customStyles = `
-    body { background-color: #e8e7e7; color: #1a1a1a; }
+    #root { max-width: none !important; margin: 0 !important; padding: 0 !important; text-align: left !important; width: 100%; }
+    body { background-color: #e8e7e7; color: #1a1a1a; margin: 0; overflow-x: hidden; }
     .bg-checker {
         background-color: #e8e7e7;
         background-image:  linear-gradient(45deg, #d1d1d1 25%, transparent 25%), linear-gradient(-45deg, #d1d1d1 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #d1d1d1 75%), linear-gradient(-45deg, transparent 75%, #d1d1d1 75%);
@@ -534,7 +535,7 @@ export default function App() {
                             </button>
                         </div>
 
-                        <div className="flex flex-wrap gap-6 justify-center">
+                        <div className="flex flex-wrap gap-6 justify-start items-start content-start">
                             {designs.map((design) => (
                                 <div key={design.id} className="flex flex-col gap-2">
                                     <div 
