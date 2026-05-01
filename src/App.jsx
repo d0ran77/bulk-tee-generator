@@ -153,13 +153,20 @@ export default function App() {
     const [savedTemplates, setSavedTemplates] = useState([]);
     const [isExporting, setIsExporting] = useState(false);
     const [enlargedDesign, setEnlargedDesign] = useState(null);
+    const [isReady, setIsReady] = useState(false); // NEW Loading state
 
     // Inject Google Fonts and external libraries on mount
     useEffect(() => {
-        // Fallback: Inject Tailwind via CDN so it works even if local build fails
-        const tailwindScript = document.createElement('script');
-        tailwindScript.src = 'https://cdn.tailwindcss.com';
-        document.head.appendChild(tailwindScript);
+        // Only load if it doesn't already exist to prevent duplicates
+        if (!document.querySelector('script[src="https://cdn.tailwindcss.com"]')) {
+            const tailwindScript = document.createElement('script');
+            tailwindScript.src = 'https://cdn.tailwindcss.com';
+            // Important: Tell React the app is ready ONLY when Tailwind finishes loading
+            tailwindScript.onload = () => setIsReady(true);
+            document.head.appendChild(tailwindScript);
+        } else {
+            setIsReady(true);
+        }
 
         const link = document.createElement('link');
         link.href = 'https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Bungee&family=Caveat&family=DM+Serif+Display&family=Fraunces:opsz,wght@9..144,700&family=Oswald:wght@700&family=Permanent+Marker&family=Playfair+Display:wght@700&family=Space+Grotesk:wght@700&display=swap';
@@ -343,6 +350,15 @@ export default function App() {
     const updateSetting = (key, value) => {
         setSettings(prev => ({ ...prev, [key]: value }));
     };
+
+    // Show loading screen while waiting for Tailwind CSS to load
+    if (!isReady) {
+        return (
+            <div style={{ backgroundColor: '#e8e7e7', width: '100vw', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'sans-serif', color: '#1a1a1a', fontWeight: '900', fontSize: '1.5rem', letterSpacing: '0.05em' }}>
+                LOADING GENERATOR...
+            </div>
+        );
+    }
 
     return (
         <>
