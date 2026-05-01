@@ -24,18 +24,23 @@ const saveAs = (content, filename) => {
 
 const PRESEEDS = [
     {
+        category: "Family & Relatives",
+        items: [
+            { name: "Promoted To", template: "Promoted to {role} in 2026", values: "Mum\nDad\nGrandma\nGranddad\nNana\nPapa\nAuntie\nUncle\nBig Sister\nBig Brother\nGigi\nOpa" },
+            { name: "Best Ever", template: "World's Best {role}", values: "Mum\nDad\nGrandad\nGrandmother\nStep-Dad\nBonus Mom\nSister\nBrother\nMother-in-Law" },
+            { name: "Tired Club", template: "Tired {role} Club", values: "Mom\nDad\nGrandma\nGrandpa\nAuntie\nUncle\nDog Mom\nCat Dad" },
+            { name: "Cool Role", template: "I'm not a regular {role},\nI'm a cool {role}", values: "Mom\nAunt\nGrandma\nDad\nUncle\nSister\nMother-in-Law" },
+            { name: "Established", template: "{role}\nEst. 2026", values: "Mom\nDad\nGrandma\nGrandpa\nNana\nPapa\nAuntie\nUncle" },
+            { name: "Chaos Coordinator", template: "{role}\naka Chaos Coordinator", values: "Mum\nDad\nGrandma\nTeacher\nNurse\nStep-Mom" }
+        ]
+    },
+    {
         category: "Sarcasm & Vibes",
         items: [
             { name: "Powered By", template: "Powered by coffee and {noun}", values: "chaos\nanxiety\nsarcasm\ntrue crime\ngood vibes\ndry shampoo\ndelusion\nspite\nkarma\noverthinking" },
             { name: "Too X For This", template: "Too {vibe} for this", values: "tired\nintroverted\noverstimulated\nunbothered\ncaffeinated\ncozy\nstressed\nbusy" },
-            { name: "World's Okayest", template: "World's Okayest {title}", values: "Brother\nBoss\nGolfer\nFisherman\nGuitar Player\nPlant Mom\nEmployee\nDriver" }
-        ]
-    },
-    {
-        category: "Family & Pets",
-        items: [
-            { name: "Promoted To", template: "Promoted to {role} in 2026", values: "Grandma\nGrandpa\nAuntie\nUncle\nBig Sister\nBig Brother\nDog Mom" },
-            { name: "Proud Parent", template: "Proud {pet} Parent", values: "Dog\nCat\nPlant\nReptile\nGuinea Pig\nBunny\nHedgehog\nFerret\nChicken" }
+            { name: "World's Okayest", template: "World's Okayest {title}", values: "Brother\nBoss\nGolfer\nFisherman\nGuitar Player\nPlant Mom\nEmployee\nDriver" },
+            { name: "Hold My...", template: "Hold my {drink} and watch this", values: "beer\ncoffee\nwine\nmargarita\niced coffee\nenergy drink\ntea" }
         ]
     },
     {
@@ -50,6 +55,13 @@ const PRESEEDS = [
         items: [
             { name: "Is My Cardio", template: "{hobby} is my cardio", values: "running\nshopping\noverthinking\nreading\ncrochet\nthrifting\nnapping\nbaking\ngossiping\nscrolling" },
             { name: "Paused My...", template: "I paused my {activity} to be here", values: "game\nanime\nreading\nplaylist\naudiobook\npodcast\ntrue crime show\ncrafting" }
+        ]
+    },
+    {
+        category: "Pets & Animals",
+        items: [
+            { name: "Proud Parent", template: "Proud {pet} Parent", values: "Dog\nCat\nPlant\nReptile\nGuinea Pig\nBunny\nHedgehog\nFerret\nChicken" },
+            { name: "Easily Distracted", template: "Easily distracted by {animal}", values: "dogs\ncats\nchickens\ncows\nhorses\nducks\nbutterflies" }
         ]
     },
     {
